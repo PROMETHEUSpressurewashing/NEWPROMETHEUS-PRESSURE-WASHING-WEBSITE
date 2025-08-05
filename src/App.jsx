@@ -1,5 +1,4 @@
-import React, { useState } from 'react';
-import {
+import React, { useState } => {
   Wrench,
   Sparkles,
   Home,
@@ -30,7 +29,7 @@ const App = () => {
   const [openFaq, setOpenFaq] = useState(null);
 
   const toggleFaq = (index) => {
-    setOpenFaq(openFaq === index ? null : index); // Corrected typo here
+    setOpenFaq(openFaq === index ? null : index);
   };
 
   const handleFormSubmit = async (event) => {
@@ -381,3 +380,6 @@ const Footer = () => (
     </div>
   </footer>
 );
+
+// Export the App component as the default export
+export default App;
