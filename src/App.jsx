@@ -337,9 +337,6 @@ const Contact = ({ handleFormSubmit, formMessage }) => (
             Send Message
           </button>
         </form>
-        <p className="mt-4 text-gray-500 text-sm">
-          **Note:** This form is a placeholder. To make it work, you will need to connect it to a service like Formspree or EmailJS.
-        </p>
       </div>
     </div>
   </section>
