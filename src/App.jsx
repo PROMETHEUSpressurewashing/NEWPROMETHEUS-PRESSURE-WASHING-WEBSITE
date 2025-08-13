@@ -346,3 +346,43 @@ const Contact = ({ handleFormSubmit, formMessage }) => (
     </div>
   </section>
 );
+
+// Footer component
+const Footer = () => (
+  <footer className="bg-gray-800 text-gray-300 py-12">
+    <div className="container mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-8">
+      <div>
+        <h4 className="text-xl font-bold mb-4 text-white">Prometheus Pressure Washing</h4>
+        <p className="text-sm">
+          Restoring the beauty of your property with professional and precise cleaning services.
+        </p>
+      </div>
+      <div>
+        <h4 className="text-xl font-bold mb-4 text-white">Quick Links</h4>
+        <ul className="space-y-2">
+          <li><a href="#services" className="hover:text-blue-400">Services</a></li>
+          <li><a href="#about" className="hover:text-blue-400">About Us</a></li>
+          <li><a href="#gallery" className="hover:text-blue-400">Gallery</a></li>
+          <li><a href="#contact" className="hover:text-blue-400">Get a Free Quote</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 className="text-xl font-bold mb-4 text-white">Contact Us</h4>
+        <p className="flex items-center space-x-2"><Mail size={16} /><span>info@prometheus-pressure-washing.com</span></p>
+        <p className="flex items-center space-x-2 mt-2"><Phone size={16} /><span>(555) 123-4567</span></p>
+        <p className="flex items-center space-x-2 mt-2"><MapPin size={16} /><span>Your City, Your State</span></p>
+        <div className="flex space-x-4 mt-6">
+          <a href="#" className="hover:text-blue-400"><Facebook size={24} /></a>
+          <a href="#" className="hover:text-blue-400"><Instagram size={24} /></a>
+          <a href="#" className="hover:text-blue-400"><X size={24} /></a>
+        </div>
+      </div>
+    </div>
+    <div className="mt-8 text-center text-sm text-gray-500">
+      &copy; {new Date().getFullYear()} Prometheus Pressure Washing. All rights reserved.
+    </div>
+  </footer>
+);
+
+// Export the App component as the default export
+export default A
