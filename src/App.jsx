@@ -300,7 +300,7 @@ const Contact = ({ handleFormSubmit, formMessage }) => (
             {formMessage.text}
           </div>
         )}
-        <form onSubmit={handleFormSubmit} action="https://formspree.io/f/your_form_id" method="POST">
+        <form onSubmit={handleFormSubmit} action="https://formspree.io/f/xkgzyppz" method="POST">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div>
               <input
