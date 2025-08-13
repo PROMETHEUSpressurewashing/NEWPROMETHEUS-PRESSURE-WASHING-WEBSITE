@@ -35,24 +35,33 @@ const App = () => {
 
   const handleFormSubmit = async (event) => {
     event.preventDefault();
-    setFormMessage({ text: 'This is a demo. Please replace this with your form submission logic.', type: 'info' });
-    // This is a placeholder. You would replace this with your actual form submission logic,
-    // for example, using a service like Formspree or EmailJS.
-    // Example with Formspree:
-    // const form = event.target;
-    // const response = await fetch(form.action, {
-    //   method: form.method,
-    //   body: new FormData(form),
-    //   headers: {
-    //       'Accept': 'application/json'
-    //   }
-    // });
-    // if (response.ok) {
-    //   setFormMessage({ text: 'Thank you for your message!', type: 'success' });
-    //   form.reset();
-    // } else {
-    //   setFormMessage({ text: 'Oops! There was a problem submitting your form.', type: 'error' });
-    // }
+
+    const form = event.target;
+    const formData = new FormData(form);
+
+    try {
+      const response = await fetch("https://formspree.io/f/xkgzyppz", {
+        method: form.method,
+        body: formData,
+        headers: {
+            'Accept': 'application/json'
+        }
+      });
+
+      if (response.ok) {
+        setFormMessage({ text: 'Thank you for your message! We will get back to you shortly.', type: 'success' });
+        form.reset(); // This clears the form fields
+      } else {
+        const result = await response.json();
+        if (Object.keys(result).length > 0) {
+            setFormMessage({ text: 'Oops! There was a problem submitting your form. ' + result.errors.map(error => error.message).join(', '), type: 'error' });
+        } else {
+            setFormMessage({ text: 'Oops! There was a problem submitting your form. Please try again.', type: 'error' });
+        }
+      }
+    } catch (error) {
+      setFormMessage({ text: 'Oops! Something went wrong. Please check your internet connection.', type: 'error' });
+    }
   };
 
   return (
